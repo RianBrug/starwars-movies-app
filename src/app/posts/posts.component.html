@@ -1,8 +1,8 @@
-<h1>Movies</h1>
+<h1>Star Wars movies</h1>
 
 <ul>
-  <li *ngFor="let film of films$">
-    <a routerLink="/details/{{film.title}}">{{film.title}}</a>
+  <li *ngFor="let film of films$; let i = index">
+    <a routerLink="/details/{{i + 1}}">{{film.title}}</a>
 
     <ul>
       <li>{{film.director}}</li>

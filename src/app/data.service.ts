@@ -20,4 +20,8 @@ export class DataService {
           return sortedArray;
         }));
       }
+
+    getFilmDetail(filmId): Observable<Object> {
+      return this.http.get<Object>(this.url+'/films/'+filmId);
+    }
 }

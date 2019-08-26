@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor() { }
+  film$: Object;
+
+  constructor(private data: DataService, private route: ActivatedRoute) {
+    this.route.params.subscribe( params => this.film$ = params.id )
+  }
 
   ngOnInit() {
+    this.data.getFilmDetail(this.film$).subscribe(
+      data => this.film$ = data
+    )
   }
 
 }
