@@ -1,0 +1,13 @@
+<h1>Movies</h1>
+
+<ul>
+  <li *ngFor="let film of films$">
+    <a routerLink="/details/{{film.title}}">{{film.title}}</a>
+
+    <ul>
+      <li>{{film.director}}</li>
+      <li>{{film.producer}}</li>
+      <li>{{film.release_date}}</li>
+    </ul>
+  </li>
+</ul>
