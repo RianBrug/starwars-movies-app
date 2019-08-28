@@ -2,7 +2,7 @@
 
 <ul>
   <li *ngFor="let film of films$; let i = index">
-    <a routerLink="/details/{{i + 1}}">{{film.title}}</a>
+    <a routerLink="/details/{{films$.length - i}}">{{film.title}}</a>
 
     <ul>
       <li>{{film.director}}</li>
