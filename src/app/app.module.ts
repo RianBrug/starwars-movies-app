@@ -18,6 +18,8 @@ import { PostsComponent } from './posts/posts.component';
 import { DetailsComponent } from './details/details.component';
 import { DataService } from './data.service';
 import { LogoutComponent } from './logout/logout.component';
+import { SearchComponent } from './search/search.component';
+import { SearchService } from './search/search.service';
 
 @NgModule({
     imports: [
@@ -36,15 +38,16 @@ import { LogoutComponent } from './logout/logout.component';
         SidebarComponent,
         PostsComponent,
         DetailsComponent,
-        LogoutComponent
+        LogoutComponent,
+        SearchComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-        // provider used to create fake backend
         fakeBackendProvider,
-        DataService
+        DataService,
+        SearchService
     ],
     bootstrap: [AppComponent]
 })
